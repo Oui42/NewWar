@@ -1,0 +1,36 @@
+body {
+	background-color: #2b2b2b;
+	color: #fff;
+}
+
+#footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#content {
+  overflow: auto;
+  position: absolute;
+  top: 60px;
+  left: 250px;
+  color: #ffffff;
+  width: calc(100% - 250px);
+}
+
+#top-nav {
+  left: 250px;
+  line-height: 50px;
+}
+
+@media (max-width: 767px) {
+  #content {
+    position: relative;
+    left: 0;
+    top: 0px;
+    width: 100%;
+  }
+
+  #top-nav {
+    display: none;
+  }
+}

@@ -3,16 +3,16 @@
 <p>
 	<b>
 		<ul>
-			<li style="color: #7a7a7a;">#7A7A7A - <kbd>#7A7A7A</kbd></li>
-			<li style="color: #383838;">#383838 - <kbd>#383838</kbd></li>
-			<li style="color: #2b2b2b;">#2B2B2B - <kbd>#2B2B2B</kbd></li>
-			<li style="color: #262626;">#262626 - <kbd>#262626</kbd></li>
-			<li style="color: #1584af;">#1584AF - <kbd>#1584AF</kbd></li>
-			<li style="color: #66c4e8;">#66C4E8 - <kbd>#66C4E8</kbd></li>
-			<li style="color: #d82f34;">#D82F34 - <kbd>#D82F34</kbd></li>
-			<li style="color: #45de76;">#45DE76 - <kbd>#45DE76</kbd></li>
-			<li style="color: #c77800;">#C77800 - <kbd>#C77800</kbd></li>
-			<li style="color: #dddd00;">#DDDD00 - <kbd>#DDDD00</kbd></li>
+			<li style="color: #7a7a7a;">Testowa treść - <kbd>#7A7A7A</kbd></li>
+			<li style="color: #383838;">Testowa treść - <kbd>#383838</kbd></li>
+			<li style="color: #2b2b2b;">Testowa treść - <kbd>#2B2B2B</kbd></li>
+			<li style="color: #262626;">Testowa treść - <kbd>#262626</kbd></li>
+			<li style="color: #1584af;">Testowa treść - <kbd>#1584AF</kbd></li>
+			<li style="color: #66c4e8;">Testowa treść - <kbd>#66C4E8</kbd></li>
+			<li style="color: #d82f34;">Testowa treść - <kbd>#D82F34</kbd></li>
+			<li style="color: #45de76;">Testowa treść - <kbd>#45DE76</kbd></li>
+			<li style="color: #c77800;">Testowa treść - <kbd>#C77800</kbd></li>
+			<li style="color: #dddd00;">Testowa treść - <kbd>#DDDD00</kbd></li>
 		</ul>
 	</b>
 </p>
@@ -75,13 +75,15 @@
 		<li><i class="fa fa-li fa-user-plus"></i> <kbd>fa-user-plus</kbd></li>
 		<li><i class="fa fa-li fa-sign-in"></i> <kbd>fa-sign-in</kbd></li>
 		<li><i class="fa fa-li fa-user"></i> <kbd>fa-user</kbd></li>
+		<li><i class="fa fa-li fa-cubes"></i> <kbd>fa-cubes</kbd></li>
 		<li><i class="fa fa-li fa-map-o"></i> <kbd>fa-map-o</kbd></li>
 		<li><i class="fa fa-li fa-money"></i> <kbd>fa-money</kbd></li>
-		<li><i class="fa fa-li fa-shield"></i> <kbd>fa-shield</kbd></li>
+		<li><i class="fa fa-li fa-crosshairs"></i> <kbd>fa-crosshairs</kbd></li>
 		<li><i class="fa fa-li fa-bank"></i> <kbd>fa-bank</kbd></li>
 		<li><i class="fa fa-li fa-shopping-cart"></i> <kbd>fa-shopping-cart</kbd></li>
 		<li><i class="fa fa-li fa-group"></i> <kbd>fa-group</kbd></li>
 		<li><i class="fa fa-li fa-trophy"></i> <kbd>fa-trophy</kbd></li>
+		<li><i class="fa fa-li fa-star-half-o"></i> <kbd>fa-star-half-o</kbd></li>
 		<li><i class="fa fa-li fa-cogs"></i> <kbd>fa-cogs</kbd></li>
 		<li><i class="fa fa-li fa-star"></i> <kbd>fa-star</kbd></li>
 		<li><i class="fa fa-li fa-power-off"></i> <kbd>fa-power-off</kbd></li>
@@ -95,6 +97,7 @@
 		<li><i class="fa fa-li fa-flash"></i> <kbd>fa-flash</kbd></li>
 		<li><i class="fa fa-li fa-dollar"></i> <kbd>fa-dollar</kbd></li>
 		<li><i class="fa fa-li fa-diamond"></i> <kbd>fa-diamond</kbd></li>
+		<li><i class="fa fa-li fa-graduation-cap"></i> <kbd>fa-graduation-cap</kbd></li>
 	</ul>
 </div>
 
@@ -105,5 +108,12 @@
 		<li><i class="fa fa-li fa-times-circle"></i> <kbd>fa-times-circle</kbd></li>
 		<li><i class="fa fa-li fa-exclamation-triangle"></i> <kbd>fa-exclamation-triangle</kbd></li>
 		<li><i class="fa fa-li fa-info-circle"></i> <kbd>fa-info-circle</kbd></li>
+	</ul>
+</div>
+
+<div class="col-md-2">
+	<h4>Pozostałe:</h4>
+	<ul class="fa-ul">
+		<li><i class="fa fa-li fa-plus"></i> <kbd>fa-plus</kbd></li>
 	</ul>
 </div>

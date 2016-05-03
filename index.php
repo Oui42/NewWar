@@ -14,9 +14,23 @@ if(empty($section)) $section = 'index';
 
 $path = 'source'."/".$app."/".$module."/".$section.".php";
 
+if($app == "admin") {
+	if(!isset($user) || $user['uRank'] < $__RANK['admin']) {
+		alert("error", "Nie masz dostępu do tej części strony.");
+		include 'overall/footer.php';
+		die();
+	}
+}
+
+if($app == "user" && $module != "session") {
+	if(!isset($user)) {
+		header("Location: index.php?app=user&module=session&section=login");
+	}
+}
+
 if(file_exists($path))
 	include($path);
 else
-	echo "Taka strona nie istnieje!";
+	alert("warning", "Taka strona nie istnieje!");
 
 include 'overall/footer.php';

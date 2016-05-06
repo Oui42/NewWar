@@ -30,6 +30,15 @@ function getItem($id) {
 	}
 }
 
+function getUserItem($id) {
+	if(isset($id) && is_numeric($id)) {
+		$ret = row("SELECT * FROM `nw_user_items` WHERE uiid = '".$id."' LIMIT 1");
+		return $ret;
+	} else {
+		return array();
+	}
+}
+
 function getMission($id) {
 	if(isset($id) && is_numeric($id)) {
 		$ret = row("SELECT * FROM `nw_missions` WHERE mid = '".$id."' LIMIT 1");

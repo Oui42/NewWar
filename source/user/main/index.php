@@ -131,45 +131,103 @@ if(isset($_POST['addSkill4'])) {
 		</div>
 	</form>
 
-	<div class="col-md-6">
-		<h4>Ekwipunek</h4>
-		<div class="table-responsive">
-			<table class="table table-hover table-condensed">
-				<tr>
-					<th>Nazwa</th>
-					<th>Typ</th>
-					<th class="text-center">Opcje</th>
-				</tr>
-				<tr>
-					<td>test</td>
-					<td>Pancerz: Głowa</td>
-					<td class="text-center">
-						<button class="btn btn-xs btn-default" type="submit" name="">Nie używaj</button>
-					</td>
-				</tr>
-			</table>
-		</div>
-	</div>
-	<div class="col-md-6">
-		<h4>Plecak (x/10)</h4>
-		<div class="table-responsive">
-			<table class="table table-hover table-condensed">
-				<tr>
-					<th>Nazwa</th>
-					<th>Typ</th>
-					<th>Cena</th>
-					<th class="text-center">Opcje</th>
-				</tr>
-				<tr>
-					<td>test</td>
-					<td>test</td>
-					<td>xxx</td>
-					<td class="text-center">
-						<button class="btn btn-xs btn-default" type="submit" name="">Użyj</button>
-						<button class="btn btn-xs btn-default" type="submit" name="">Wyrzuć</button>
-					</td>
-				</tr>
-			</table>
-		</div>
-	</div>
+	<?php
+	$item_list = array();
+	$sql = "SELECT * FROM `nw_user_items` WHERE `uiOwner` = '".$user['uid']."' ORDER BY `uiActive` DESC";
+	$query = mysql_query($sql);
+	if(mysql_num_rows($query) > 0) {
+		while($row = mysql_fetch_array($query)) {
+			$item_list[] = $row;
+		}
+	}
+
+	if(isset($_POST['itemUse'])) {
+		$_itemid = $_POST['itemUse'];
+		$_useritem = getUserItem($_itemid);
+		$_item = getItem($_useritem['uiItem']);
+
+		if($_item > 0) {
+			if($_useritem['uiOwner'] == $user['uid']) {
+				if($_item['iLevel'] <= $user['uLevel']) {
+					if($_useritem['uiActive'] == $__ITEM_STATUS['active'])
+						mysql_query("UPDATE `nw_user_items` SET `uiActive` = '".$__ITEM_STATUS['unactive']."' WHERE `uiid` = '".$_itemid."'");
+					else
+						mysql_query("UPDATE `nw_user_items` SET `uiActive` = '".$__ITEM_STATUS['active']."' WHERE `uiid` = '".$_itemid."'");
+				}
+			}
+		}
+		
+		header("Location: index.php?app=user");
+	}
+
+	if(isset($_POST['itemRemove'])) {
+		$_itemid = $_POST['itemRemove'];
+		$_useritem = getUserItem($_itemid);
+		$_item = getItem($_useritem['uiItem']);
+
+		if($_item > 0) {
+			if($_useritem['uiOwner'] == $user['uid'])
+				mysql_query("DELETE FROM `nw_user_items` WHERE `uiid` = '".$_itemid."'");
+		}
+
+		header("Location: index.php?app=user");
+	}
+
+	if(!empty($item_list)) {
+	?>
+		<form method="post" action="">
+			<div class="col-md-offset-1 col-md-10">
+				<h4>Ekwipunek (<?php echo count($item_list); ?>/20)</h4>
+				<div class="table-responsive">
+					<table class="table table-hover table-condensed">
+						<tr>
+							<th>Nazwa</th>
+							<th>Typ</th>
+							<th class='text-center'>Poziom</th>
+							<th>Statystyki</th>
+							<th class='text-center'>Cena</th>
+							<th class="text-center">Opcje</th>
+						</tr>
+						<?php
+						foreach($item_list as $l) {
+							$_useritem = getUserItem($l['uiid']);
+							$_item = getItem($_useritem['uiItem']);
+
+							if($l['uiActive'] == $__ITEM_STATUS['active'])
+								echo '<tr class="active">';
+							else
+								echo '<tr>';
+								if($_item['iType'] == $__ITEM['weapon_ammo']['dbname'] || $_item['iType'] == $__ITEM['weapon_thrown']['dbname'])
+									echo '<td>'.$_item['iName'].' <small>('.$l['uiValue'].')</small></td>';
+								else
+									echo '<td>'.$_item['iName'].'</td>';
+								echo '<td>'.$__ITEM[$_item['iType']]['name'].'</td>';
+								if($user['uLevel'] < $_item['iLevel'])
+									echo "<td class='text-center'><span class='text-danger'>".$_item['iLevel']."</span></td>";
+								else
+									echo "<td class='text-center'>".$_item['iLevel']."</td>";
+								if($_item['iType'] == $__ITEM['armor_head']['dbname'] || $_item['iType'] == $__ITEM['armor_body']['dbname'] || $_item['iType'] == $__ITEM['armor_hands']['dbname'] || $_item['iType'] == $__ITEM['armor_legs']['dbname'] || $_item['iType'] == $__ITEM['upgrade_armor']['dbname'])
+									echo '<td><b>Kondycja:</b> '.$_item['iValue1'].'<br><b>Wytrzymałość:</b> '.$_item['iValue2'].'</td>';
+								else if($_item['iType'] == $__ITEM['weapon_gun']['dbname'] || $_item['iType'] == $__ITEM['weapon_white']['dbname'] || $_item['iType'] == $__ITEM['weapon_ammo']['dbname'] || $_item['iType'] == $__ITEM['weapon_thrown']['dbname'] || $_item['iType'] == $__ITEM['upgrade_weapon']['dbname'])
+									echo '<td><b>Celność:</b> '.$_item['iValue1'].'</td>';
+								else
+									echo '<td>-</td>';
+								echo '<td class="text-center"><i class="fa fa-dollar" style="color: #45de76;"></i> '.intval($_item['iCost'] / $__SETTINGS['sellCost']).'</td>';
+								echo '<td class="text-center">';
+									if($l['uiActive'] == $__ITEM_STATUS['active']) {
+										echo '<button class="btn btn-xs btn-default" type="submit" name="itemUse" value="'.$l['uiid'].'">Nie używaj</button> ';
+									} else {
+										if($_item['iLevel'] <= $user['uLevel'])
+											echo '<button class="btn btn-xs btn-default" type="submit" name="itemUse" value="'.$l['uiid'].'">Użyj</button> ';
+										echo '<button class="btn btn-xs btn-default" type="submit" name="itemRemove" value="'.$l['uiid'].'">Wyrzuć</button>';
+									}
+								echo '</td>';
+							echo '</tr>';
+						}
+						?>
+					</table>
+				</div>
+			</div>
+		</form>
+	<?php } ?>
 </div>

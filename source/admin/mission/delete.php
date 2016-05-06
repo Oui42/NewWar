@@ -5,7 +5,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
 
 	if($_mission > 0) {
 		if(isset($_POST['submitDelete'])) {
-			mysql_query("DELETE FROM `nw_missions` WHERE `iid` = '".$_missionid."'");
+			mysql_query("DELETE FROM `nw_missions` WHERE `mid` = '".$_missionid."'");
 			header("Location: index.php?app=admin&module=mission");
 		}
 		?>

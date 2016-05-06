@@ -26,6 +26,10 @@ code {
   background-color: #242424;
 }
 
+form {
+  margin: 0;
+}
+
 #footer {
   text-align: center;
   margin-top: 20px;
@@ -94,4 +98,8 @@ input[type="password"], input[type="email"], input[type="text"] {
   background-color: #66c4e8;
   border-color: #156584;
   color: #156584;
+}
+
+.clear {
+  clear: both;
 }

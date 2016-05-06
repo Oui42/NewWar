@@ -13,7 +13,8 @@ $__SETTINGS = array(
 	'expMin' => 5,
 	'expMax' => 10,
 	'moneyMin' => 3,
-	'moneyMax' => 5
+	'moneyMax' => 5,
+	'sellCost' => 2
 );
 
 $__ITEM = array(
@@ -82,4 +83,9 @@ $__ITEM = array(
 		'name' => "Różności: Śmieć",
 		'dbname' => 'other_trash'
 	)
+);
+
+$__ITEM_STATUS = array(
+	'unactive' => 0,
+	'active' => 1
 );

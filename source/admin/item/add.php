@@ -3,11 +3,12 @@ if(isset($_POST['addItem'])) {
 	$error = array();
 	$type = (isset($_POST['type']))? $_POST['type'] : "";
 	$name = (isset($_POST['name']))? vtxt($_POST['name']) : "";
+	$level = (isset($_POST['level']))? vtxt($_POST['level']) : "";
 	$value1 = (isset($_POST['value1']))? vtxt($_POST['value1']) : "";
 	$value2 = (isset($_POST['value2']))? vtxt($_POST['value2']) : "";
 	$cost = (isset($_POST['cost']))? $_POST['cost'] : "";
 
-	if(empty($name) || empty($value1) || empty($value2) || empty($cost)) {
+	if(empty($name) || empty($level) || empty($value1) || empty($value2) || empty($cost)) {
 		$error[] = "Wypełnij wszystkie pola.";
 	} else {
 		if(empty($type))
@@ -15,6 +16,9 @@ if(isset($_POST['addItem'])) {
 
 		if(strlen($name) < 3 || strlen($name) > 32)
 			$error[] = "Nazwa musi mieć minimum 3 i maksimum 32 znaki.";
+
+		if(strlen($level) > 4 || !is_numeric($level))
+			$error[] = "Poziom musi być liczbą i może mieć maksymalnie 4 cyfry.";
 
 		if(strlen($value1) > 8 || !is_numeric($value1))
 			$error[] = "Wartość 1 musi być liczbą i może mieć maksymalnie 8 cyfr.";
@@ -27,7 +31,7 @@ if(isset($_POST['addItem'])) {
 	}
 
 	if(empty($error)) {
-		mysql_query("INSERT INTO `nw_items` (iid, iType, iName, iValue1, iValue2, iCost) VALUES('NULL', '".$type."', '".$name."', '".$value1."', '".$value2."', '".$cost."')") or die(mysql_error());
+		mysql_query("INSERT INTO `nw_items` (iid, iType, iName, iLevel, iValue1, iValue2, iCost) VALUES('NULL', '".$type."', '".$name."', '".$level."', '".$value1."', '".$value2."', '".$cost."')") or die(mysql_error());
 		$id = mysql_insert_id();
 		header("Location: index.php?app=admin&module=item");
 	} else {
@@ -62,6 +66,10 @@ if(isset($_POST['addItem'])) {
 	<div class="form-group">
 		<label for="name">Nazwa</label>
 		<input id="name" type="text" class="form-control" name="name">
+	</div>
+	<div class="form-group">
+		<label for="level">Minimalny poziom</label>
+		<input id="level" type="text" class="form-control" name="level">
 	</div>
 	<div class="form-group">
 		<label for="value1">Wartość 1</label>

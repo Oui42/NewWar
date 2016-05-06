@@ -18,12 +18,13 @@ if(mysql_num_rows($query) > 0) {
 
 <?php if(!empty($list)) { ?>
 
-<div class="table-responsive col-md-offset-2 col-md-8">
+<div class="table-responsive">
 	<table class="table table-hover table-condensed">
 		<tr>
 			<th class="text-center">ID</th>
 			<th>Typ</th>
 			<th>Nazwa</th>
+			<th>Poziom</th>
 			<th>Wartość 1</th>
 			<th>Wartość 2</th>
 			<th>Cena</th>
@@ -35,9 +36,10 @@ if(mysql_num_rows($query) > 0) {
 					echo "<td class='text-center'>".$l['iid']."</td>";
 					echo "<td>".$__ITEM[$l['iType']]['name']."</td>";
 					echo "<td>".$l['iName']."</td>";
+					echo "<td>".$l['iLevel']."</td>";
 					echo "<td>".$l['iValue1']."</td>";
 					echo "<td>".$l['iValue2']."</td>";
-					echo "<td>".$l['iCost']."</td>";
+					echo "<td><i class='fa fa-dollar' style='color: #45de76;'></i> ".$l['iCost']."</td>";
 					echo "<td class='text-right'>";
 					?>
 						<a href="index.php?app=admin&module=item&section=edit&id=<?php echo $l['iid']; ?>" class="btn btn-sm btn-default"><i class="fa fa-pencil"></i></a>

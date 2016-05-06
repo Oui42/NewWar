@@ -1,0 +1,1 @@
+<?php header("Location: index.php?app=user&module=shop&section=equipment"); ?>

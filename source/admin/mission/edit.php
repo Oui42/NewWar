@@ -35,7 +35,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
 		}
 		?>
 
-		<form method="post" action="" class="col-md-offset-4 col-md-4">
+		<form method="post" action="" class="col-md-offset-3 col-md-6">
 			<div class="form-group">
 				<label for="name">Nazwa</label>
 				<input id="name" type="text" class="form-control" name="name" value="<?php echo $name; ?>">

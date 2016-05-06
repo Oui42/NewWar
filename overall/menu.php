@@ -46,9 +46,9 @@
 						<a href="#"><i class="fa fa-shopping-cart fa-lg"></i> Sklep <span class="arrow"></span></a>
 					</li>
 					<ul class="sub-menu collapse" id="shop">
-						<li><a href="#">Ekwipunek</a></li>
-						<li><a href="#">Ulepszenia</a></li>
-						<li><a href="#">Różności</a></li>
+						<li><a href="index.php?app=user&module=shop&section=equipment">Ekwipunek</a></li>
+						<li><a href="index.php?app=user&module=shop&section=upgrade">Ulepszenia</a></li>
+						<li><a href="index.php?app=user&module=shop&section=other">Różności</a></li>
 					</ul>
 
 					<li>

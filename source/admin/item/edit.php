@@ -6,6 +6,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
 	if($_item > 0) {
 		$type = $_item['iType'];
 		$name = $_item['iName'];
+		$level = $_item['iLevel'];
 		$value1 = $_item['iValue1'];
 		$value2 = $_item['iValue2'];
 		$cost = $_item['iCost'];
@@ -15,15 +16,19 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
 
 			$type = $_POST['type'];
 			$name = isset($_POST['name'])? $_POST['name'] : "";
+			$level = isset($_POST['level'])? $_POST['level'] : "";
 			$value1 = isset($_POST['value1'])? $_POST['value1'] : "";
 			$value2 = isset($_POST['value2'])? $_POST['value2'] : "";
 			$cost = isset($_POST['cost'])? $_POST['cost'] : "";
 
-			if(empty($name) || empty($value1) || empty($value2) || empty($cost)) {
+			if(empty($name) || empty($level) || empty($value1) || empty($value2) || empty($cost)) {
 				$error[] = "Wypełnij wszystkie pola.";
 			} else {
 				if(strlen($name) < 3 || strlen($name) > 32)
 					$error[] = "Nazwa musi mieć minimum 3 i maksimum 32 znaki.";
+
+				if(strlen($level) > 4 || !is_numeric($level))
+					$error[] = "Poziom musi być liczbą i może mieć maksymalnie 4 cyfry.";
 
 				if(strlen($value1) > 8 || !is_numeric($value1))
 					$error[] = "Wartość 1 musi być liczbą i może mieć maksymalnie 8 cyfr.";
@@ -36,7 +41,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
 			}
 
 			if(empty($error)) {
-				mysql_query("UPDATE `nw_items` SET `iType` = '".$type."', `iName` = '".$name."', `iValue1` = '".$value1."', `iValue2` = '".$value2."', `iCost` = '".$cost."' WHERE `iid` = '".$_itemid."'");
+				mysql_query("UPDATE `nw_items` SET `iType` = '".$type."', `iName` = '".$name."', `iLevel` = '".$level."', `iValue1` = '".$value1."', `iValue2` = '".$value2."', `iCost` = '".$cost."' WHERE `iid` = '".$_itemid."'");
 				header("Location: index.php?app=admin&module=item");
 			} else {
 				echo "<div class='alert alert-danger' role='alert'><i class='fa fa-times-circle' style='font-size: 20;'></i> <b>Błąd!</b> Wystąpiły następujące błędy:<br>";
@@ -70,6 +75,10 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
 			<div class="form-group">
 				<label for="name">Nazwa</label>
 				<input id="name" type="text" class="form-control" name="name" value="<?php echo $name; ?>">
+			</div>
+			<div class="form-group">
+				<label for="level">Minimalny poziom</label>
+				<input id="level" type="text" class="form-control" name="level" value="<?php echo $level; ?>">
 			</div>
 			<div class="form-group">
 				<label for="value1">Wartość 1</label>

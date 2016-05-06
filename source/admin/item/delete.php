@@ -15,6 +15,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
 			<p class="text-center">Czy chcesz usunąć ten przedmiot?</p>
 			<b>Typ:</b> <?php echo $__ITEM[$_item['iType']]['name']; ?><br>
 			<b>Nazwa:</b> <?php echo $_item['iName']; ?><br>
+			<b>Poziom:/b> <?php echo $_item['iLevel']; ?><br>
 			<b>Wartość 1:</b> <?php echo $_item['iValue1']; ?><br>
 			<b>Wartość 2:</b> <?php echo $_item['iValue2']; ?><br>
 			<b>Koszt:</b> <?php echo $_item['iCost']; ?><br>

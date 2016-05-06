@@ -126,6 +126,7 @@
 		<li><i class="fa fa-li fa-font"></i> <kbd>fa-font</kbd></li>
 		<li><i class="fa fa-li fa-fonticons"></i> <kbd>fa-fonticons</kbd></li>
 		<li><i class="fa fa-li fa-plus"></i> <kbd>fa-plus</kbd></li>
+		<li><i class="fa fa-li fa-minus"></i> <kbd>fa-minus</kbd></li>
 		<li><i class="fa fa-li fa-calculator"></i> <kbd>fa-calculator</kbd></li>
 		<li><i class="fa fa-li fa-suitcase"></i> <kbd>fa-suitcase</kbd></li>
 	</ul>

@@ -84,7 +84,7 @@
 						<li><a href="#">Ustawienia</a></li>
 						<li><a href="index.php?app=admin&module=user">Gracze</a></li>
 						<li><a href="#">Drużyny</a></li>
-						<li><a href="#">Zadania</a></li>
+						<li><a href="index.php?app=admin&module=mission">Zadania</a></li>
 						<li><a href="index.php?app=admin&module=item">Przedmioty</a></li>
 						<li><a href="#">Raporty <span class="label label-danger">x</span></a></li>
 						<li><a href="index.php?app=admin&module=main&section=help-game">Pomoc Gra</a></li>

@@ -3,7 +3,7 @@
 		<script src="js/bootstrap.min.js"></script>
 		<script>
 			$(function () {
-				$('[data-toggle="tooltip"]').tooltip()
+				$('[data-toggle="tooltip"]').tooltip();
 			})
 		</script>
 	</body>

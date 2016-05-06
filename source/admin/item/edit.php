@@ -6,7 +6,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
 	if($_item > 0) {
 		$type = $_item['iType'];
 		$name = $_item['iName'];
-		$value1 = $_item['iValue2'];
+		$value1 = $_item['iValue1'];
 		$value2 = $_item['iValue2'];
 		$cost = $_item['iCost'];
 

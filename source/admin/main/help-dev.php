@@ -112,8 +112,21 @@
 </div>
 
 <div class="col-md-2">
+	<h4>Panel Administratora:</h4>
+	<ul class="fa-ul">
+		<li><i class="fa fa-li fa-pencil"></i> <kbd>fa-pencil</kbd></li>
+		<li><i class="fa fa-li fa-trash-o"></i> <kbd>fa-trash-o</kbd></li>
+	</ul>
+</div>
+
+<div class="col-md-2">
 	<h4>Pozostałe:</h4>
 	<ul class="fa-ul">
+		<li><i class="fa fa-li fa-paint-brush"></i> <kbd>fa-paint-brush</kbd></li>
+		<li><i class="fa fa-li fa-font"></i> <kbd>fa-font</kbd></li>
+		<li><i class="fa fa-li fa-fonticons"></i> <kbd>fa-fonticons</kbd></li>
 		<li><i class="fa fa-li fa-plus"></i> <kbd>fa-plus</kbd></li>
+		<li><i class="fa fa-li fa-calculator"></i> <kbd>fa-calculator</kbd></li>
+		<li><i class="fa fa-li fa-suitcase"></i> <kbd>fa-suitcase</kbd></li>
 	</ul>
 </div>

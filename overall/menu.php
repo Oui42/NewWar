@@ -27,7 +27,7 @@
 					</li>
 
 					<li>
-						<a href="#"><i class="fa fa-map-o fa-lg"></i> Zadnia</a>
+						<a href="#"><i class="fa fa-map-o fa-lg"></i> Zadania</a>
 					</li>
 
 					<li>
@@ -82,10 +82,10 @@
 					</li>
 					<ul class="sub-menu collapse" id="admin">
 						<li><a href="#">Ustawienia</a></li>
-						<li><a href="#">Gracze</a></li>
+						<li><a href="index.php?app=admin&module=user">Gracze</a></li>
 						<li><a href="#">Drużyny</a></li>
 						<li><a href="#">Zadania</a></li>
-						<li><a href="#">Przedmioty</a></li>
+						<li><a href="index.php?app=admin&module=item">Przedmioty</a></li>
 						<li><a href="#">Raporty <span class="label label-danger">x</span></a></li>
 						<li><a href="index.php?app=admin&module=main&section=help-game">Pomoc Gra</a></li>
 						<li><a href="index.php?app=admin&module=main&section=help-dev">Pomoc WWW</a></li>

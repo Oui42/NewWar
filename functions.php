@@ -21,6 +21,15 @@ if(isset($_SESSION['uid'])) {
 	$user = getUser($_SESSION['uid']);
 }
 
+function getItem($id) {
+	if(isset($id) && is_numeric($id)) {
+		$ret = row("SELECT * FROM `nw_items` WHERE iid = '".$id."' LIMIT 1");
+		return $ret;
+	} else {
+		return array();
+	}
+}
+
 function alert($type, $text) {
 	if($type == "success") {
 		$message = "<div class='alert alert-success' role='alert'><i class='fa fa-check-circle' style='font-size: 20;'></i> <b>Sukces!</b> ".$text."</div>";

@@ -45,7 +45,6 @@ if(isset($_POST['submitRegister'])) {
 		mysql_query("INSERT INTO `nw_users` (uid, uLogin, uPass, uSalt, uCode, uEmail, uIp, uDate) VALUES('NULL', '".$login."', '".$insertPassword."', '".$salt."', '".$code."', '".$email."', '".$ip."', '".time()."')") or die(mysql_error());
 		$id = mysql_insert_id();
 		alert("success", "Konto zostało założone.");
-
 	} else {
 		echo "<div class='alert alert-danger' role='alert'><i class='fa fa-times-circle' style='font-size: 20;'></i> <b>Błąd!</b> Wystąpiły następujące błędy:<br>";
 		foreach($error as $e)
